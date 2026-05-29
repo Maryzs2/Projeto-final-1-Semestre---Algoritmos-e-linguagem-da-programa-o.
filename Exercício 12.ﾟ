@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<body style="background:#800020; color:white; font−family:Arial">
+    <h1>=. Bem-vindo a sua ficha de RPG - "Ordem Paranormal" .=</h1>
+    <h2>Informações</h2>
+    <p id="nome">Nome:</p>
+    <p id="idade">Idade:</p>
+    <p id="origem">Origem:</p>
+    <p id="classe">Classe:</p>
+
+    <h2>Atributos</h2>
+    <p id="atributos">Atributos:</p>
+
+    <h2>Perícias</h2>
+    <input type="checkbox" id="Atletismo">
+    <label>Atletismo</label>
+    <br>
+
+    <input type="checkbox" id="Fortitude">
+    <label>Fortitude</label>
+    <br>
+
+    <input type="checkbox" id="Intimidação">
+    <label>Intimidação</label>
+    <br>
+
+    <input type="checkbox" id="Medicina">
+    <label>Medicina</label>
+    <br>
+
+    <input type="checkbox" id="Pontaria">
+    <label>Pontaria</label>
+    <br>
+
+    <button onclick="mostrar()">
+        Confirmar
+    </button>
+
+    <p id="pericias">Perícias:</p>
+
+    <h2>Inventário</h2>
+    <p id="inventario">Inventário:</p>
+
+<script>
+
+let nome = ""
+while(nome === ""){
+    nome = prompt("Escreva o nome do seu persongem")
+}
+let idade = ""
+while(idade === ""){
+    idade = +prompt("Escreva a idade do seu persongem")
+}
+let origem = ""
+while(origem === ""){
+    origem = prompt("Escreva o nome da profissao do seu personagem")
+}
+let classe = ""
+while(classe === ""){
+    classe = prompt("Escolha entre as classes: Mundano, Especialista, Combatente ou Ocultista")
+}
+document.getElementById("nome").innerText = "Nome: " + nome
+document.getElementById("idade").innerText = "Idade: " + idade
+document.getElementById("origem").innerText = "Origem: " + origem
+document.getElementById("classe").innerText = "Classe: " + classe
+
+
+let atributos = ["Presença", "Vigor", "Intelecto", "Agilidade", "Força"]
+let resultadosAtributos = [0, 0, 0, 0, 0]
+let numero = ""
+for(let i = 0; i < atributos.length; i ++){
+    resultadosAtributos[i] = prompt("Digite o valor de " + atributos[i])
+    numero += atributos[i] + ": " + resultadosAtributos[i] + "\n"
+}
+
+document.getElementById("atributos").innerText = "Atributos: " + numero
+
+function mostrar(){
+    let texto = ""
+
+    if(document.getElementById("Atletismo").checked){
+        texto += "Atletismo: 5 "
+    }else{
+        texto += "Atletismo: 0 "
+    }
+    if(document.getElementById("Fortitude").checked){
+        texto += "Fortitude: 5 "
+    }else{
+        texto += "Fortitude: 0 "
+    }
+    if(document.getElementById("Intimidação").checked){
+        texto += "Intimidação: 5 "
+    }else{
+        texto += "Intimidação: 0 "
+    }
+    if(document.getElementById("Medicina").checked){
+        texto += "Medicina: 5 "
+    }else{
+        texto += "Medicina: 0 "
+    }
+    if(document.getElementById("Pontaria").checked){
+        texto += "Pontaria: 5 "
+    }else{
+        texto += "Pontaria: 0 "
+    }
+
+document.getElementById("pericias").innerText = texto
+}
+
+let inventario = []
+for(let i = 0; i < 5; i ++){
+    let item = prompt("Escreva um item para o inventário")
+    inventario.push(item)
+}
+let texto2 = ""
+for(let i = 0; i < inventario.length; i ++){
+    texto2 += inventario[i] + "\n"
+}
+document.getElementById("inventario").innerText = texto2
+
+</script>
+</body>
+</html>
